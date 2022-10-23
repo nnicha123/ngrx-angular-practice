@@ -1,8 +1,6 @@
 import {on,ReducerTypes} from '@ngrx/store';
 import { moduleEntityAdapter, ModuleEntityState } from '../definitions/store.definitions';
 import * as fromActions from '../create-employee/create-employee.action';
-import { ModuleData } from 'src/app/employee/definitions/module.definitions';
-import { getData } from '../utils';
 
 export function createEmployeeReducer():ReducerTypes<ModuleEntityState,any>[]{
   return [
@@ -20,8 +18,6 @@ export function createEmployeeReducer():ReducerTypes<ModuleEntityState,any>[]{
       }
     }),
     on(fromActions.createEmployeeSuccess, (state,action) => {
-      console.log(action.employee);
-      const data:ModuleData|undefined = getData(state);
       return {
         ...moduleEntityAdapter.updateOne(
           {

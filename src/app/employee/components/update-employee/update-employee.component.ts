@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Employee } from '../../employee';
-import { EmployeeService } from '../../../employee.service';
 import { ModuleFacade } from '../../store/module.facade';
 import { take } from 'rxjs';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-update-employee',
@@ -12,17 +11,17 @@ import { take } from 'rxjs';
 })
 export class UpdateEmployeeComponent implements OnInit {
   id:string = '';
-  employee:Employee = { id:'',firstName:'',lastName:'',emailId:''};
+  formGroup!:FormGroup;
 
-  constructor(private route:ActivatedRoute, private moduleFacade:ModuleFacade) { }
+  constructor(private route:ActivatedRoute, private moduleFacade:ModuleFacade, private fb:FormBuilder) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id']
-    this.patchWithStoreValue();
+    this.id = this.route.snapshot.params['id'];
+    this.initUpdateForm()
   }
 
   onSubmit(){
-    this.moduleFacade.updateEmployee(this.id, this.employee);
+    this.moduleFacade.updateEmployee(this.id, this.formGroup.value);
   }
 
   private patchWithStoreValue():void {
@@ -31,8 +30,22 @@ export class UpdateEmployeeComponent implements OnInit {
       take(1)
     ).subscribe(employee => {
       if(employee){
-        this.employee = employee
+        this.formGroup.patchValue({
+          ...employee
+        })
       }
     })
   }
+
+  private initUpdateForm():void {
+    this.formGroup = this.fb.group({
+      firstName:['',[]],
+      lastName:['',[]],
+      emailId:['',[]]
+    })
+    this.patchWithStoreValue();
+
+  } 
+
+
 }

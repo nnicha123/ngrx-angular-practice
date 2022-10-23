@@ -5,7 +5,7 @@ import { CreateEmployeeComponent } from './components/create-employee/create-emp
 import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
 import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
 import { ModuleFacade } from './store/module.facade';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import * as fromStore from '../employee/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -24,6 +24,7 @@ const STORE_MODULES = [
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     ...STORE_MODULES
 
   ],

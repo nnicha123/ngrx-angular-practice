@@ -18,7 +18,6 @@ export const selectStatus = createSelector(selectEntity, entity => entity ? enti
 export const selectAll = createSelector(selectFeature,  fromReducer.selectAllEntities);
 
 export const selectAllEmployees = createSelector(selectAll, moduleEntities => {
-  console.log(moduleEntities)
   return moduleEntities.map(entities => entities.data as Employee)
 })
 
@@ -27,9 +26,7 @@ export const selectEmployeeById = createSelector(
   (
     employees:Employee[],
     props: {id:string},
-  ) => {
-    console.log(employees.find(employee => employee.id == props.id))
-    return employees.find(employee => employee.id == props.id)
-  }
+  ) =>  employees.find(employee => employee.id == props.id)
+  
 )
 
