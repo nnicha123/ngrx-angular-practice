@@ -10,8 +10,8 @@ export function loadHistoryReducer():ReducerTypes<ModuleEntityState,any>[]{
       return {
         ...moduleEntityAdapter.addOne(
           {
+            id:state.selectedId || '0',
             data:{
-              id:'0',
               histories:[]
             },
             status:'loading'

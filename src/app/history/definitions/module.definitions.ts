@@ -1,5 +1,4 @@
 export interface ModuleData {
-  id:string;
   histories:History[];
 }
 

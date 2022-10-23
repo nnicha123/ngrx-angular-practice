@@ -4,6 +4,7 @@ import { ModuleData, ModuleStatus } from '../../definitions/module.definitions';
 export const featureKey = 'history';
 
 export interface ModuleEntity {
+  id:string;
   data?:ModuleData;
   status:ModuleStatus;
 }
@@ -13,7 +14,7 @@ export interface ModuleEntityState extends EntityState<ModuleEntity> {
 }
 
 const selectUserId = (entity:ModuleEntity):string => {
-  return entity.data?.id as string
+  return entity.id as string
 }
 
 export const moduleEntityAdapter:EntityAdapter<ModuleEntity> = createEntityAdapter<ModuleEntity>({
