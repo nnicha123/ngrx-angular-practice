@@ -1,5 +1,4 @@
 import { createAction,props } from "@ngrx/store";
-import { Employee } from "../../employee";
 
 enum DeleteEmployeeAction {
   DELETE_EMPLOYEE = '[Employee] Delete Employee',
@@ -14,6 +13,7 @@ export const deleteEmployee = createAction(
 
 export const deleteEmployeeSuccess = createAction(
   DeleteEmployeeAction.DELETE_EMPLOYEE_SUCCESS,
+  props<{id:string}>()
 );
 
 export const deleteEmployeeError = createAction(

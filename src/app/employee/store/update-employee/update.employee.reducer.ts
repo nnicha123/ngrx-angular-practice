@@ -4,11 +4,13 @@ import * as fromActions from '../update-employee/update.employee.action';
 
 export function updateEmployeeReducer():ReducerTypes<ModuleEntityState,any>[]{
   return [
-    on(fromActions.updateEmployee, (state) => {
+    on(fromActions.updateEmployee, (state,{id}) => {
+      console.log(id)
+      const stringId = '' + id;
       return {
         ...moduleEntityAdapter.updateOne(
           {
-            id:state.selectedId || '0',
+            id:stringId|| '0',
             changes:{
               status:'loading'
             }
@@ -17,13 +19,13 @@ export function updateEmployeeReducer():ReducerTypes<ModuleEntityState,any>[]{
         )
       }
     }),
-    on(fromActions.updateEmployeeSuccess, (state,action) => {
+    on(fromActions.updateEmployeeSuccess, (state,{id,employee}) => {
       return {
         ...moduleEntityAdapter.updateOne(
           {
-            id:state.selectedId || '0',
+            id:id || '0',
             changes:{
-              data:action.employee,
+              data:employee,
               status:'ready'
             }
           },

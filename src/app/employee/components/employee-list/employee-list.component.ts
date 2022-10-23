@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 import { Employee } from '../../employee';
 import { ModuleFacade } from '../../store/module.facade';
 
@@ -18,7 +18,11 @@ export class EmployeeListComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.moduleFacade.loadEmployees();
+    this.employees$.pipe(take(1)).subscribe((employees) => {
+      if(employees.length === 0){
+        this.moduleFacade.loadEmployees();
+      }
+    })
   }
 
   updateEmployee(id:string){

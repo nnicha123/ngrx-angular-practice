@@ -19,18 +19,10 @@ export function deleteEmployeeReducer():ReducerTypes<ModuleEntityState,any>[]{
         )
       }
     }),
-    on(fromActions.deleteEmployeeSuccess, (state,action) => {
-      const data:ModuleData|undefined = getData(state);
+    on(fromActions.deleteEmployeeSuccess, (state,{id}) => {
       return {
-        ...moduleEntityAdapter.updateOne(
-          {
-            id:state.selectedId || '0',
-            changes:{
-              status:'ready'
-            }
-          },
-          state
-        )
+        ...moduleEntityAdapter.removeOne(id,state),
+          
       }
     }),
     on(fromActions.deleteEmployeeError, (state,error) => {

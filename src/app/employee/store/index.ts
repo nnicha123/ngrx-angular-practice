@@ -18,7 +18,7 @@ const actions = {
 };
 
 const selectors = {
-  selectStatus:selectStatus
+  selectStatus:selectStatus,
 }
 
 const effects:any[] = [

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ModuleFacade } from '../../store/module.facade';
 import { take } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -18,7 +18,6 @@ export class UpdateEmployeeComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
       this.initUpdateForm()
-    // }
   }
 
   onSubmit(){

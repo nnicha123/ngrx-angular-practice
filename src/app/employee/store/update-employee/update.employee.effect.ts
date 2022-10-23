@@ -26,7 +26,7 @@ export class UpdateEmployeeEffect {
         const employee = payload.employee;
         return this.employeeService.updateEmployee(id,employee)
         .pipe(
-          map((employee:Employee) => fromActions.updateEmployeeSuccess({employee})
+          map((employee:Employee) => fromActions.updateEmployeeSuccess({id,employee})
         ))
       })
     )

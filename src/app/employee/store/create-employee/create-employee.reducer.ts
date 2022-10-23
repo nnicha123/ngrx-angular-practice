@@ -19,13 +19,10 @@ export function createEmployeeReducer():ReducerTypes<ModuleEntityState,any>[]{
     }),
     on(fromActions.createEmployeeSuccess, (state,action) => {
       return {
-        ...moduleEntityAdapter.updateOne(
+        ...moduleEntityAdapter.addOne(
           {
-            id:state.selectedId || '0',
-            changes:{
               data:action.employee,
               status:'ready'
-            }
           },
           state
         )

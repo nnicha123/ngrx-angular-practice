@@ -11,7 +11,7 @@ export function loadEmployeesReducer():ReducerTypes<ModuleEntityState,any>[]{
           {
             id:state.selectedId || '0',
             changes:{
-              status:'loading'
+              status:'loading',
             }
           },
           state
@@ -19,7 +19,8 @@ export function loadEmployeesReducer():ReducerTypes<ModuleEntityState,any>[]{
       }
     }),
     on(fromActions.loadEmployeesSuccess, (state,action) => {
-      const employeeEntities:ModuleEntity[]|undefined = getEmployeeEntities(state,action.employees) || []
+      const employeeEntities:ModuleEntity[]|undefined = getEmployeeEntities(state,action.employees) || [];
+      console.log(employeeEntities);
       return {
         ...moduleEntityAdapter.addMany(
           [...employeeEntities],

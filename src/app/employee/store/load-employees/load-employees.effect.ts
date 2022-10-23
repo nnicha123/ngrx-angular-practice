@@ -4,7 +4,6 @@ import { catchError, map, mergeMap, of } from "rxjs";
 import { Employee } from "src/app/employee/employee";
 import { EmployeeService } from "src/app/employee.service";
 import * as fromActions from './load-employees.action';
-import { Router } from "@angular/router";
 
 @Injectable()
 export class LoadEmployeesEffect {
