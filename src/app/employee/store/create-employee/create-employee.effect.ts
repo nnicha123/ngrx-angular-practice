@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import {switchMap,map, tap } from "rxjs";
-import { EmployeeService } from "src/app/employee.service";
+import { EmployeeService } from "../../services/employee.service";
 import { Employee } from "../../employee";
 import * as fromActions from './create-employee.action';
 import { Router } from "@angular/router";

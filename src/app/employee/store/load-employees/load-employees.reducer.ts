@@ -20,7 +20,6 @@ export function loadEmployeesReducer():ReducerTypes<ModuleEntityState,any>[]{
     }),
     on(fromActions.loadEmployeesSuccess, (state,action) => {
       const employeeEntities:ModuleEntity[]|undefined = getEmployeeEntities(state,action.employees) || [];
-      console.log(employeeEntities);
       return {
         ...moduleEntityAdapter.addMany(
           [...employeeEntities],

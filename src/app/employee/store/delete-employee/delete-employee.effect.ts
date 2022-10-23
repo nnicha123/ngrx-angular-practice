@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, mergeMap, of, tap } from "rxjs";
-import { EmployeeService } from "src/app/employee.service";
+import { EmployeeService } from "src/app/employee/services/employee.service";
 import * as fromActions from './delete-employee.action';
 
 @Injectable()

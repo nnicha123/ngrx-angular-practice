@@ -1,15 +1,15 @@
 import {on,ReducerTypes} from '@ngrx/store';
 import { moduleEntityAdapter, ModuleEntityState } from '../definitions/store.definitions';
-import * as fromActions from '../update-employee/update.employee.action';
+import * as fromActions from '../create-history/create-history.action';
+import { getData } from '../../utils';
 
-export function updateEmployeeReducer():ReducerTypes<ModuleEntityState,any>[]{
+export function createHistoryReducer():ReducerTypes<ModuleEntityState,any>[]{
   return [
-    on(fromActions.updateEmployee, (state,{id}) => {
-      const stringId = '' + id;
+    on(fromActions.createHistory, (state) => {
       return {
         ...moduleEntityAdapter.updateOne(
           {
-            id:stringId|| '0',
+            id:state.selectedId || '0',
             changes:{
               status:'loading'
             }
@@ -18,13 +18,15 @@ export function updateEmployeeReducer():ReducerTypes<ModuleEntityState,any>[]{
         )
       }
     }),
-    on(fromActions.updateEmployeeSuccess, (state,{id,employee}) => {
+    on(fromActions.createHistorySuccess, (state,{history}) => {
+      const data = getData(state);
+      console.log(data);
       return {
         ...moduleEntityAdapter.updateOne(
           {
-            id:id || '0',
+            id:state.selectedId || '0',
             changes:{
-              data:employee,
+              data:data,
               status:'ready'
             }
           },
@@ -32,7 +34,7 @@ export function updateEmployeeReducer():ReducerTypes<ModuleEntityState,any>[]{
         )
       }
     }),
-    on(fromActions.updateEmployeeError, (state,error) => {
+    on(fromActions.createHistorySuccess, (state,error) => {
       return {
         ...moduleEntityAdapter.updateOne(
           {

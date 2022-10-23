@@ -1,8 +1,7 @@
 import {on,ReducerTypes} from '@ngrx/store';
 import { moduleEntityAdapter, ModuleEntityState } from '../definitions/store.definitions';
 import * as fromActions from '../delete-employee/delete-employee.action';
-import { ModuleData } from 'src/app/employee/definitions/module.definitions';
-import { getData } from '../utils';
+
 
 export function deleteEmployeeReducer():ReducerTypes<ModuleEntityState,any>[]{
   return [

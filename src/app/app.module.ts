@@ -8,6 +8,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "src/environments/environment";
 import { EmployeeModule } from './employee/employee.module';
+import { HistoryModule } from './history/history.module';
 
 const NGRX_MODULES = [
   StoreModule.forRoot([]),
@@ -29,6 +30,7 @@ const NGRX_MODULES = [
     AppRoutingModule,
     HttpClientModule,
     EmployeeModule,
+    HistoryModule,
     ...NGRX_MODULES
   ],
   bootstrap: [AppComponent]

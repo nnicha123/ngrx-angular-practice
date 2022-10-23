@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import {switchMap,map, tap, withLatestFrom, concatMap, of } from "rxjs";
-import { EmployeeService } from "src/app/employee.service";
+import { EmployeeService } from "src/app/employee/services/employee.service";
 import { Employee } from "../../employee";
 import * as fromActions from './update.employee.action';
 import { Router } from "@angular/router";
