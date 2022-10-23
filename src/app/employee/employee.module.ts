@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
-import { CreateEmployeeComponent } from './components/create-employee/create-employee.component';
 import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
 import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
 import { ModuleFacade } from './store/module.facade';
@@ -18,7 +17,6 @@ const STORE_MODULES = [
 @NgModule({
   declarations: [    
     EmployeeListComponent,
-    CreateEmployeeComponent,
     UpdateEmployeeComponent,
     EmployeeDetailsComponent],
   imports: [
@@ -29,7 +27,6 @@ const STORE_MODULES = [
 
   ],
   exports:[EmployeeListComponent,
-    CreateEmployeeComponent,
     UpdateEmployeeComponent,
     EmployeeDetailsComponent],
   providers: [ModuleFacade],

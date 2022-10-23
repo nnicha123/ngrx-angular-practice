@@ -17,11 +17,18 @@ export class UpdateEmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    this.initUpdateForm()
+      this.initUpdateForm()
+    // }
   }
 
   onSubmit(){
-    this.moduleFacade.updateEmployee(this.id, this.formGroup.value);
+    if(this.id){
+      this.moduleFacade.updateEmployee(this.id, this.formGroup.value);
+    } else {
+      if(this.formGroup.value){
+        this.moduleFacade.createEmployee(this.formGroup.value);
+      }
+    }
   }
 
   private patchWithStoreValue():void {
