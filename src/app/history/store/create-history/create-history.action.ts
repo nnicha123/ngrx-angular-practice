@@ -2,9 +2,9 @@ import { createAction,props } from "@ngrx/store";
 import { History } from "../../definitions/module.definitions";
 
 enum CreateHistoryAction {
-  CREATE_HISTORY = '[Employee] Create Employee',
-  CREATE_HISTORY_SUCCESS = '[Employee] Create Employee Success',
-  CREATE_HISTORY_ERROR = '[Employee] Create Employee Error'
+  CREATE_HISTORY = '[History] Create History',
+  CREATE_HISTORY_SUCCESS = '[History] Create History Success',
+  CREATE_HISTORY_ERROR = '[History] Create History Error'
 };
 
 export const createHistory = createAction(
